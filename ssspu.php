@@ -3,7 +3,7 @@
 Plugin Name: Simple Self Stylable Popup
 Plugin URI: http://askella.de/
 Description: SSSPU allows users to easily add pop-ups to their websites. Intermediate HTML and CSS knowledge is required for this plugin.
-Version: 1.0
+Version: 0.5
 Author: Michael Nissen
 Author URI: http://michaelnissen.de/
 */
