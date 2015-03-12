@@ -19,23 +19,28 @@ This section describes how to install the plugin and get it working.
 
 1. Upload 'plugin-name.php' to the '/wp-content/plugins/' directory
 1. Activate the plugin through the 'Plugins' menu in WordPress
-1. You may access and modify the settings in the WordPress backend via Settings -> Self-Stylable Pop-Up
+1. You may access and modify the settings in the WordPress backend via Settings -> sIMPLE Self-Stylable PopUp
 
 == Frequently Asked Questions ==
 
 = How can I create a button that closes the Pop-Up? =
 
-Simply wrap the text or element into <div class="ssspu-close"></div>-tags. You can also style these tags in the CSS-section of the plugin. By default, .ssspu-close does not contain any styles.
+Simply wrap the text or element into <_div class="ssspu-close"_><_/div_>-tags (remove the underscores). You can also style these tags in the CSS-section of the plugin. By default, .ssspu-close does not contain any styles.
+
+= My Pop-Up does not appear =
+Please ensure that your theme calls the wp_footer(); hook. This hook is usually called in a file called "footer.php".
+
+= The pop-up is displayed as a post / page on the front page of my website =
+This was a bug as of Version 0.5. Please update to the newest version.
 
 == Screenshots ==
 
-1. This screen shot description corresponds to screenshot-1.(png|jpg|jpeg|gif). Note that the screenshot is taken from
-the /assets directory or the directory that contains the stable readme.txt (tags or trunk). Screenshots in the /assets 
-directory take precedence. For example, `/assets/screenshot-1.png` would win over `/tags/4.3/screenshot-1.png` 
-(or jpg, jpeg, gif).
-2. This is the second screen shot
+1. SSSPU provides a clean and easy-to-use backend for customizing. Default presets allow you to style your own pop-up within minutes.
 
 == Changelog ==
 
-= 1.0 =
+= 0.6 =
+* Plugin is no longer called utilizing "the_content"-hook, but instead uses the "wp_footer"-hook now. This fixes a bug that made the plugin appear as additional post on the home/start-page. In return, the theme running the plugin must use the wp_footer(); call.
+
+= 0.5 =
 * First stable and tested version.

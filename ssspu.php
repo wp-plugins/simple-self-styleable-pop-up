@@ -3,13 +3,13 @@
 Plugin Name: Simple Self Stylable Popup
 Plugin URI: http://askella.de/
 Description: SSSPU allows users to easily add pop-ups to their websites. Intermediate HTML and CSS knowledge is required for this plugin.
-Version: 0.5
+Version: 0.6
 Author: Michael Nissen
 Author URI: http://michaelnissen.de/
 */
 
 add_action('wp_head', 'ssspu_popup_js');
-add_action('the_content', 'ssspu_popup_html');
+add_action('wp_footer', 'ssspu_popup_html');
 add_action('admin_menu', 'ssspu_add_menu');
 add_action('wp_enqueue_scripts', 'ssspu_frontend_scripts');
 add_action('admin_enqueue_scripts', 'ssspu_backend_scripts');
@@ -82,7 +82,7 @@ function ssspu_popup_js(){
 	}
 }
 
-function ssspu_popup_html($content){
+/*function ssspu_popup_html($content){
 	if(get_option('ssspu_activated') == "true"){
 		$content = '<div id="ssspu-wrapper">'.
         get_option("ssspu_html").'
@@ -90,13 +90,17 @@ function ssspu_popup_html($content){
 	}
 	
 	return $content;
+}*/
+
+function ssspu_popup_html(){
+	if(get_option('ssspu_activated') == "true"){
+		echo('<div id="ssspu-wrapper">'.get_option("ssspu_html").'</div>');
+	}
 }
 
 function ssspu_frontend_scripts(){
-	/* Only load scripts if popup is activated; Plugin will use jQuery by Google for caching and speedup reasons */
+	/* Only load scripts if popup is activated */
 	if(get_option('ssspu_activated') == "true"){
-		/*wp_deregister_script('jquery');
-		wp_register_script('jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js');*/
 		wp_enqueue_script('jquery');
 		/*wp_register_script('ssspu_js', admin_url('admin-ajax.php?action=ssspu_frontend_javascript'));
 		wp_enqueue_script('ssspu_js'); */
@@ -110,7 +114,7 @@ function ssspu_frontend_css_hook(){
 		header('Content-type: text/css');
 		
 		echo('#ssspu-wrapper{
-			position:fixed; z-index: 99; display:none; left:0; top:0;
+			position:fixed; z-index: 9999999; display:none; left:0; top:0;
 		}');
 		echo(get_option('ssspu_css'));
 		return;
