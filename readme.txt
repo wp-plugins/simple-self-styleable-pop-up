@@ -2,8 +2,8 @@
 Contributors: michaelni
 Tags: Pop-Up, Pop Up, Popup, Cookie Disclaimer, Cookie, Disclaimer
 Requires at least: 3.4
-Tested up to: 4.0
-Stable tag: 0.5
+Tested up to: 4.1.1
+Stable tag: 0.6
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
